@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Button</title>
+</head>
+<body>
+    <form action="{% url 'edit_task' get_task.pk %}"  method="POST">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <span style="display: flex;">
+                           <input name="task" type="text" class="form-control" placeholder="edit a task" value={{edit_task.task}}>
+                           {% comment %} name=task if send to views .py  {% endcomment %}
+                            <button type="submit" class="btn btn-primary" style="width: 200px;"><i class="fa fa-plus"></i> Update</button>
+                        </span>
+                    </div>
+                </form>
+</body>
+</html>
